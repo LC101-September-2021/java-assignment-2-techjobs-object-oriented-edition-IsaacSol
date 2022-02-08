@@ -49,7 +49,10 @@ public class Job {
 
     @Override
     public String toString() {
-        if (this.name == null || this.employer.getValue() == null || this.location.getValue() == null || this.positionType.getValue() == null || this.coreCompetency.getValue() == null) {
+//        if(Objects.equals(this.name, "") || Objects.equals(this.employer.getValue(), "") || Objects.equals(this.location.getValue(), "") || Objects.equals(this.positionType.getValue(), "") || Objects.equals(this.coreCompetency.getValue(), "")) {
+//            return "\nOOPS! This job does not seem to exist.\n";
+//        } else
+            if (this.name == null || this.employer.getValue() == null || this.location.getValue() == null || this.positionType.getValue() == null || this.coreCompetency.getValue() == null) {
             return "\nOOPS! This job does not seem to exist.\n";
         } else {
             return "\nID: "+ this.id + "\nName: " + this.name + "\nEmployer: " + this.employer + "\nLocation: " + this.location + "\nPosition Type: " + this.positionType + "\nCore Competency: " + this.coreCompetency+"\n";

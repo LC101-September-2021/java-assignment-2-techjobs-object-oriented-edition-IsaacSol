@@ -10,7 +10,12 @@ public abstract class JobField {
     public JobField(String value) {
         this.id = nextId;
         nextId++;
-        this.value = value;
+        if (value != "") {
+            this.value = value;
+        } else {
+            this.value = "Data not available";
+        }
+
     }
 
     @Override

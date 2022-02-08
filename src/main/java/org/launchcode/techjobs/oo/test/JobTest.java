@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(JUnit4.class)
 public class JobTest {
-    Job job;
+//    Job job;
     Job job1;
     Job job2;
     Job job3;
@@ -24,7 +24,7 @@ public class JobTest {
 
     @Before
     public void createJobs() {
-        job = new Job();
+//        job = new Job();
         job1 = new Job();
         job2 = new Job();
         job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -92,20 +92,26 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
+        Job job8 = new Job();
         char test = '\n';
-        assertEquals(job1.toString().charAt(0), test);
+        System.out.println(job8);
+        assertEquals(job8.toString().charAt(0), test);
+        assertEquals(job8.toString().charAt(job8.toString().length() - 1), test);
+    }
+
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job7 = new Job();
+        Assert.assertEquals("\nOOPS! This job does not seem to exist.\n", job7.toString());
     }
 
     @Test
-    public void testToStringStartsAndEndsWithNewLineCallsToString() {
-        char test = '\n';
-        assertEquals(job.toString().charAt(0), test);
-        assertEquals(job.toString().charAt(job.toString().length() - 1), test);
-    }
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        System.out.println(job.toString());
+        assertEquals("\nID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency()+"\n", job.toString());
 
-    @Test
-    public void TestToStringHandlesEmptyField() {
-        Assert.assertEquals("t", "t");
     }
 
 
