@@ -47,6 +47,15 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        if (this.name == null || this.employer == null || this.location == null || this.positionType == null || this.coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return "\nID: "+ this.id + "\nName: " + this.name + "\nEmployer: " + this.employer + "\nLocation: " + this.location + "\nPosition Type: " + this.positionType + "\nCore Competency: " + this.coreCompetency+"\n";
+        }
+    }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
