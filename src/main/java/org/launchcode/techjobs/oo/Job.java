@@ -19,7 +19,7 @@ public class Job {
 
     public Job() {
         id = nextId;
-        this.nextId++;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -39,7 +39,7 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id;
+        return id == job.getId();
     }
 
     @Override
@@ -49,8 +49,8 @@ public class Job {
 
     @Override
     public String toString() {
-        if (this.name == null || this.employer == null || this.location == null || this.positionType == null || this.coreCompetency == null) {
-            return "OOPS! This job does not seem to exist.";
+        if (this.name == null || this.employer.getValue() == null || this.location.getValue() == null || this.positionType.getValue() == null || this.coreCompetency.getValue() == null) {
+            return "\nOOPS! This job does not seem to exist.\n";
         } else {
             return "\nID: "+ this.id + "\nName: " + this.name + "\nEmployer: " + this.employer + "\nLocation: " + this.location + "\nPosition Type: " + this.positionType + "\nCore Competency: " + this.coreCompetency+"\n";
         }
